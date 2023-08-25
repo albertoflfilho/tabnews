@@ -1,5 +1,5 @@
 function Home() {
-    return <h1>Criaremos App incrível...</h1>
+    return <h1>curso.dev</h1>
 }
 
 export default Home;
