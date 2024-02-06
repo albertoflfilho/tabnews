@@ -17,7 +17,7 @@ async function status(request, response) {
     updated_at: updatedAt,
     dependencies: {
       database: {
-        pg_server_version: Number(server_version),
+        pg_server_version: server_version,
         pg_max_conections: Number(max_connections),
         pg_opened_connections: databaseOpenedConnectionsValue,
       },
