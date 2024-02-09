@@ -22,7 +22,7 @@ describe("GET to /api/v1/status", () => {
 
   test("Max connection to return number", async () => {
     expect(dependencies.database.pg_max_conections).toBeDefined();
-    expect(dependencies.database.pg_max_conections).toEqual(100);
+    expect(dependencies.database.pg_max_conections).toEqual(112);
   });
 
   test("Opened connections to return number", async () => {
