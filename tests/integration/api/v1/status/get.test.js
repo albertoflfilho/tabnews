@@ -17,7 +17,7 @@ describe("GET to /api/v1/status", () => {
 
   test("Server version to return number", async () => {
     expect(dependencies.database.pg_server_version).toBeDefined();
-    expect(dependencies.database.pg_server_version).toEqual(16.0);
+    expect(dependencies.database.pg_server_version).toEqual("16.0");
   });
 
   test("Max connection to return number", async () => {
