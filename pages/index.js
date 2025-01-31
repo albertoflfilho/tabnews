@@ -1,34 +1,32 @@
-function Home() {
+import React from "react";
+import { Button } from "@/components/ui/button";
+
+export default function Home() {
   return (
-    <div style={{ textAlign: 'center', fontFamily: 'Arial, sans-serif', padding: '20px' }}>
-      <h1>albertolacerda.com [QA]</h1>
-      <h2>Alberto Lacerda</h2>
-      <p>Quality Assurance Engineer | Test Automation | Agile | CI/CD</p>
-      <p>📍 Montréal, QC | 📧 albertoflfilho@gmail.com | 📞 514.699.7756</p>
-      <p>
-        🔗 <a href="https://www.linkedin.com/in/albertolacerda">LinkedIn</a> | 🔗 <a href="https://github.com/albertolacerda">GitHub</a>
-      </p>
-      <h3>Professional Summary</h3>
-      <p>
-        Software Engineer with 7+ years of experience, transitioning into Quality Assurance (QA) and test automation. 
-        Strong background in web development, Agile methodologies, and CI/CD. Focused on writing automated tests for web applications, APIs, and databases 
-        to ensure software reliability and performance.
-      </p>
-      <h3>Technical Skills</h3>
-      <ul style={{ listStyleType: 'none', padding: 0 }}>
-        <li>🔹 Test Automation: Selenium WebDriver, Cypress, Playwright, Jest.js</li>
-        <li>🔹 API Testing: Postman, REST Assured, Newman</li>
-        <li>🔹 Performance Testing: JMeter, Locust</li>
-        <li>🔹 CI/CD & DevOps: Jenkins, GitHub Actions, Docker</li>
-        <li>🔹 Programming: JavaScript, TypeScript, Python, Node.js</li>
-      </ul>
-      <h3>Education & Certifications</h3>
-      <ul style={{ listStyleType: 'none', padding: 0 }}>
-        <li>🎓 Bachelor’s Degree in Computer Science</li>
-        <li>🎓 Automation Testing with Selenium WebDriver – CESAR.edu</li>
-      </ul>
+    <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center px-6">
+      <header className="w-full flex justify-between items-center py-6 max-w-5xl">
+        <div className="text-2xl font-bold text-purple-400">QA</div>
+        <nav className="space-x-6 text-gray-300">
+          <a href="#home" className="text-purple-400">Home</a>
+        </nav>
+      </header>
+      
+      <main className="text-center mt-20">
+        <h1 className="text-5xl font-bold">Alberto Lacerda</h1>
+        <p className="text-xl text-gray-400 mt-2">Quality Assurance Engineer</p>
+        <Button className="mt-6 border border-purple-400 text-purple-400 px-6 py-2 rounded-lg hover:bg-purple-500 hover:text-white">
+          Download CV
+        </Button>
+      </main>
+
+      <div className="absolute bottom-10 right-10 text-purple-400">
+        <svg width="200" height="200" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L15 8H9L12 2Z" fill="currentColor"/>
+          <path d="M12 22L9 16H15L12 22Z" fill="currentColor"/>
+          <path d="M2 12L8 15V9L2 12Z" fill="currentColor"/>
+          <path d="M22 12L16 9V15L22 12Z" fill="currentColor"/>
+        </svg>
+      </div>
     </div>
   );
 }
-
-export default Home;
