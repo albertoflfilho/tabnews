@@ -14,9 +14,9 @@ export default function Home() {
       <main className="text-center mt-20">
         <h1 className="text-5xl font-bold">Alberto Lacerda</h1>
         <p className="text-xl text-gray-400 mt-2">Quality Assurance Engineer</p>
-        <Button className="mt-6 border border-purple-400 text-purple-400 px-6 py-2 rounded-lg hover:bg-purple-500 hover:text-white">
+        {/* <Button className="mt-6 border border-purple-400 text-purple-400 px-6 py-2 rounded-lg hover:bg-purple-500 hover:text-white">
           Download CV
-        </Button>
+        </Button> */}
       </main>
 
       <div className="absolute bottom-10 right-10 text-purple-400">
