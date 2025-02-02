@@ -13,13 +13,18 @@ export default function Home() {
         const canvas = document.createElement("canvas");
         document.body.appendChild(canvas);
         const ctx = canvas.getContext("2d");
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+
+        function resizeCanvas() {
+          canvas.width = window.innerWidth;
+          canvas.height = window.innerHeight;
+        }
+        window.addEventListener("resize", resizeCanvas);
+        resizeCanvas();
 
         const matrixChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".split("");
         const fontSize = 16;
-        const columns = canvas.width / fontSize;
-        const drops = Array(Math.floor(columns)).fill(1);
+        const columns = Math.floor(canvas.width / fontSize);
+        const drops = Array(columns).fill(1);
 
         function drawMatrix() {
           ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
@@ -51,6 +56,9 @@ export default function Home() {
         app.style.border = "1px solid #0f0";
         app.style.borderRadius = "10px";
         app.style.boxShadow = "0 0 15px #0f0";
+        app.style.width = "90%";
+        app.style.maxWidth = "600px";
+        app.style.boxSizing = "border-box";
 
         function createElement(tag, text, className) {
           const el = document.createElement(tag);
@@ -62,21 +70,19 @@ export default function Home() {
         const title = createElement("h1", "albertolacerda.com [QA]");
         const subtitle = createElement("h2", "Alberto Lacerda");
         const location = createElement("p", "📍 Montréal, QC");
-        const description = createElement(
+        const description = createElement("p", "Quality Assurance Engineer");
+        const specialization = createElement(
           "p",
-          "Quality Assurance Engineer | Test Automation | Agile | CI/CD"
+          "Test Automation | Agile | CI/CD"
         );
-
         const skills = createElement(
           "p",
           "Skills: Selenium Webdriver, Cypress, React.js, Jest, Node.js, AWS, Python, PostgreSQL"
         );
-
         const experience = createElement(
           "p",
           "Experience: WorkJam, Synergie Canada, Blue Badger, Groupe Dynamite, Accenture, AlayaCare"
         );
-
         const education = createElement(
           "p",
           "Education: Bachelor's in Computer Science"
@@ -87,15 +93,16 @@ export default function Home() {
         );
 
         const resumeLink = document.createElement("p");
-        resumeLink.innerHTML = `📄 <a href="./AlbertoLacerdaResumeQA_2025.pdf" target="_blank" style="color: #0f0;">Download Resume (PDF)</a>`;
+        resumeLink.innerHTML = `📄 <a href="/AlbertoLacerdaResumeQA_2025.pdf" target="_blank" style="color: #0f0;">Download Resume (PDF)</a>`;
 
         const links = document.createElement("p");
         links.innerHTML = `🔗 <a href="https://www.linkedin.com/in/albertoflfilho" target="_blank" style="color: #0f0;">LinkedIn</a> | 🔗 <a href="https://github.com/albertoflfilho" target="_blank" style="color: #0f0;">GitHub</a>`;
 
-        // Criar galeria de experiências
+        // Criar galeria de experiências responsiva
         const experienceContainer = document.createElement("div");
         experienceContainer.style.display = "grid";
-        experienceContainer.style.gridTemplateColumns = "repeat(2, 1fr)";
+        experienceContainer.style.gridTemplateColumns =
+          "repeat(auto-fit, minmax(200px, 1fr))";
         experienceContainer.style.gap = "10px";
         experienceContainer.style.marginTop = "20px";
 
@@ -153,11 +160,12 @@ export default function Home() {
           subtitle,
           location,
           description,
+          specialization,
           skills,
           experience,
           education,
           languages,
-          resumeLink,
+          // resumeLink,
           links,
           experienceContainer
         );
