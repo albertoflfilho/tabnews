@@ -6,10 +6,9 @@ export default function Home() {
       const app = document.getElementById("app");
       if (app) {
         document.body.style.margin = "0";
-        document.body.style.overflow = "hidden";
+        document.body.style.overflow = "auto";
         document.body.style.backgroundColor = "black";
 
-        // Criar fundo estilo Matrix
         const canvas = document.createElement("canvas");
         document.body.appendChild(canvas);
         const ctx = canvas.getContext("2d");
@@ -43,11 +42,10 @@ export default function Home() {
         }
         setInterval(drawMatrix, 50);
 
-        // Estilizar o conteúdo
-        app.style.position = "absolute";
-        app.style.top = "50%";
+        app.style.position = "relative";
+        app.style.top = "20px";
         app.style.left = "50%";
-        app.style.transform = "translate(-50%, -50%)";
+        app.style.transform = "translateX(-50%)";
         app.style.fontFamily = "monospace";
         app.style.textAlign = "center";
         app.style.padding = "20px";
@@ -59,6 +57,12 @@ export default function Home() {
         app.style.width = "90%";
         app.style.maxWidth = "600px";
         app.style.boxSizing = "border-box";
+        app.style.zIndex = "2";
+
+        canvas.style.position = "absolute";
+        canvas.style.top = "0";
+        canvas.style.left = "0";
+        canvas.style.zIndex = "-1";
 
         function createElement(tag, text, className) {
           const el = document.createElement(tag);
@@ -67,10 +71,13 @@ export default function Home() {
           return el;
         }
 
-        const title = createElement("h1", "albertolacerda.com [QA]");
+        const title = createElement("h1", "albertolacerda.com");
         const subtitle = createElement("h2", "Alberto Lacerda");
         const location = createElement("p", "📍 Montréal, QC");
         const description = createElement("p", "Quality Assurance Engineer");
+        description.style.fontWeight = "bold";
+        description.style.fontSize = "16px";
+        description.style.color = "#0f0";
         const specialization = createElement(
           "p",
           "Test Automation | Agile | CI/CD"
@@ -83,14 +90,8 @@ export default function Home() {
           "p",
           "Experience: WorkJam, Synergie Canada, Blue Badger, Groupe Dynamite, Accenture, AlayaCare"
         );
-        const education = createElement(
-          "p",
-          "Education: Bachelor's in Computer Science"
-        );
-        const languages = createElement(
-          "p",
-          "Languages: English, Portuguese, French"
-        );
+        const education = createElement("p", "Bachelor's in Computer Science");
+        const languages = createElement("p", "English, Portuguese, French");
 
         const resumeLink = document.createElement("p");
         resumeLink.innerHTML = `📄 <a href="/AlbertoLacerdaResumeQA_2025.pdf" target="_blank" style="color: #0f0;">Download Resume (PDF)</a>`;
@@ -98,7 +99,6 @@ export default function Home() {
         const links = document.createElement("p");
         links.innerHTML = `🔗 <a href="https://www.linkedin.com/in/albertoflfilho" target="_blank" style="color: #0f0;">LinkedIn</a> | 🔗 <a href="https://github.com/albertoflfilho" target="_blank" style="color: #0f0;">GitHub</a>`;
 
-        // Criar galeria de experiências responsiva
         const experienceContainer = document.createElement("div");
         experienceContainer.style.display = "grid";
         experienceContainer.style.gridTemplateColumns =
@@ -132,16 +132,16 @@ export default function Home() {
             tasks: "Maintained internal web applications.",
           },
           {
-            company: "Accenture",
-            role: "Software Developer Analyst",
-            dates: "2014-2016",
-            tasks: "Developed enterprise solutions.",
-          },
-          {
             company: "AlayaCare",
             role: "Web Developer",
             dates: "2018-2019",
             tasks: "Built healthcare platform features.",
+          },
+          {
+            company: "Accenture",
+            role: "Software Developer Analyst",
+            dates: "2014-2016",
+            tasks: "Developed enterprise solutions.",
           },
         ];
 
@@ -158,14 +158,13 @@ export default function Home() {
         app.append(
           title,
           subtitle,
-          location,
           description,
+          location,
           specialization,
           skills,
           experience,
           education,
           languages,
-          // resumeLink,
           links,
           experienceContainer
         );
